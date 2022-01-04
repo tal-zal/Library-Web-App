@@ -1,7 +1,16 @@
+body {
+    background-color: rgb(234, 255, 157);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #abc {
     width: 100%;
     height: 100%;
-    opacity: .8;
+    opacity: 0.8;
     top:0;
     left: 0;
     display: none;
@@ -43,18 +52,21 @@
 }
 
 form {
-    font-family: Arial, Helvetica, sans-serif;
+
     display: flex;
     flex-direction: column;
+    opacity: 1;
 }
 
 .cardDisplay {
+    padding: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
 .bookCard {
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 200px;

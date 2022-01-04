@@ -11,22 +11,7 @@ let myLibrary = [];
 
 function openTheForm(){
     document.getElementById('abc').style.display = "block";
-    
-    document.getElementById('closeButton').addEventListener("click", () => {
-        closeTheForm();
-    })
-
-    document.getElementById('submit').addEventListener('click', () => {
-        var elements = document.getElementById("form").elements;
-        var obj = {};
-        for(var i = 0 ; i < elements.length ; i++){
-            var item = elements.item(i);
-            obj[item.name] = item.value;
-        }
-        let newBook = new Book(obj.title, obj.author, obj.numPages, myLibrary.length);
-        createBook(newBook);
-        closeTheForm();
-    })
+    document.getElementById('popupContact').style.opacity = 1;
 }
 
 function closeTheForm(){
@@ -37,7 +22,6 @@ function closeTheForm(){
 function createBook(book){
     myLibrary.push(book);
     addCardPopulate();
-    return myLibrary[length-1];
 }
 
 
@@ -56,11 +40,30 @@ function populateCards(){
 }
 
 function addCardPopulate(){
+
+    let book = myLibrary[myLibrary.length-1];
+
+    let title = book.title;
+    let author = book.author;
+    let numPages = book.numPages;
+
     var cardDisplay = document.querySelector(".cardDisplay");
     
     let bookHTMLObject = document.createElement("div");
     bookHTMLObject.classList.add("bookCard");
     
+    let titleHTML = document.createElement("p");
+    let authorHTML = document.createElement("p");
+    let numPagesHTML = document.createElement("p");
+
+    titleHTML.textContent = title;
+    authorHTML.textContent = author;
+    numPagesHTML.textContent = numPages;
+
+    bookHTMLObject.appendChild(titleHTML);
+    bookHTMLObject.appendChild(authorHTML);
+    bookHTMLObject.appendChild(numPagesHTML);
+
     cardDisplay.appendChild(bookHTMLObject);
 }
 
@@ -73,6 +76,23 @@ function addEventListeners(){
     addButton.addEventListener("click", () => {
         openTheForm();
     });
+
+    document.getElementById('closeButton').addEventListener("click", () => {
+        closeTheForm();
+    })
+
+    document.getElementById('submit').addEventListener('click', () => {
+        var elements = document.getElementById("form").elements;
+        var obj = {};
+        for(var i = 0 ; i < elements.length ; i++){
+            var item = elements.item(i);
+            obj[item.name] = item.value;
+        }
+        let newBook = new Book(obj.title, obj.author, obj.numPages, myLibrary.length);
+        createBook(newBook);
+        closeTheForm();
+    })
+
 
 }
 
