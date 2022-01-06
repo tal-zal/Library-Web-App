@@ -66,13 +66,15 @@ function populateCards(){
 }
 
 function deleteBook(index){
-    var cardDisplay = document.querySelector(".cardDisplay");
+    let cardDisplay = document.querySelector(".cardDisplay");
     let nodeList = cardDisplay.childNodes;
     nodeList[index].remove();
 }
 
 function reIndexBooks(){
-    
+    for (let i = 0; i < myLibrary.length; i++){
+        myLibrary[i].arrayIndex = i;
+    }
 }
 
 function addCardPopulate(){
