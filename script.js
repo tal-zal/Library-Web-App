@@ -103,14 +103,15 @@ function addCardPopulate(){
     let authorHTML = document.createElement("p");
     let numPagesHTML = document.createElement("p");
 
-    titleHTML.textContent = title;
-    authorHTML.textContent = author;
-    numPagesHTML.textContent = numPages;
+    titleHTML.textContent = "Title: " + title;
+    authorHTML.textContent = "Author: " + author;
+    numPagesHTML.textContent = "Length: " + numPages + " Pages";
 
     bookHTMLObject.appendChild(deleteButton);
     bookHTMLObject.appendChild(titleHTML);
     bookHTMLObject.appendChild(authorHTML);
     bookHTMLObject.appendChild(numPagesHTML);
+
 
     cardDisplay.appendChild(bookHTMLObject);
 }
@@ -138,6 +139,7 @@ function addEventListeners(){
         }
         let newBook = new Book(obj.title, obj.author, obj.numPages, myLibrary.length);
         createBook(newBook);
+        let form = document.getElementById("popupContact").style.opacity = 1; // TODO DELETE
         closeTheForm();
     })
 
