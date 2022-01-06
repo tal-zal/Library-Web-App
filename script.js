@@ -11,7 +11,6 @@ let myLibrary = [];
 
 function openTheForm(){
     document.getElementById('abc').style.display = "block";
-    document.getElementById('popupContact').style.opacity = 1;
 }
 
 function closeTheForm(){
